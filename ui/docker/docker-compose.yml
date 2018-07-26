@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  fullstack-party-ui:
+    build:
+      context: ./node
+      dockerfile: Dockerfile.dev
+    working_dir: /var/www/
+    container_name: fullstack-party-ui
+    ports:
+      - '2201:2201'
+    volumes:
+      - ../:/var/www/

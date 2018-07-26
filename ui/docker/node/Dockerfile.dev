@@ -1,0 +1,5 @@
+FROM node:latest
+
+WORKDIR /var/www
+
+CMD npm prune && npm install && npm run dev
