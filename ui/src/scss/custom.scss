@@ -1,0 +1,35 @@
+html,
+body {
+  height: 100%;
+  color: $text-color;
+}
+
+.btn {
+  // TODO: bootstrap vars dont work on this one
+  &:hover, &:active, &:focus {
+    box-shadow: none !important;
+  }
+
+  &.btn-primary {
+    font-weight: bold;
+    line-height: 40px;
+    font-size: 16px;
+    color: $white;
+    background-color: $btn-primary-bg-color;
+
+    &:hover, &:active, &:focus {
+      background-color: $btn-primary-hover-color !important;
+    }
+  }
+}
+
+.btn-logout {
+  background: url('../assets/img/logout.ico.png') no-repeat left center;
+  padding-left: 27px;
+  color: #2f3153;
+
+  &:hover {
+    color: #99cc33;
+    text-decoration: none;
+  }
+}

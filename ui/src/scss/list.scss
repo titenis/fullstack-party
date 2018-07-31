@@ -1,0 +1,184 @@
+@import 'main';
+
+.list-bg {
+  background: $login-bg-color url('../assets/img/list.bg.png');
+  background-size: cover;
+  resize: both;
+
+  h2 {
+    font-size: 48px;
+    font-weight: 300;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .by-logo {
+    font-size: 20px;
+  }
+
+  .mini-logo {
+    width: 67px;
+    margin-top: -5px;
+  }
+}
+
+.navbar {
+  height: $navbar-height;
+}
+
+.h-100-minus-navbar {
+  height: calc(100% - #{$navbar-height});
+}
+
+.absolute-vertical-center {
+  position: absolute;
+  top: 50%;
+  width: calc(100% - (#{$grid-gutter-width} / 2));
+}
+
+.list {
+  border-top: 1px solid $list-border-color;
+  background-color: $main-bg-color;
+
+  .filter {
+    padding: 20px 0;
+
+    .open, .closed {
+      background-repeat: no-repeat;
+      background-position: left center;
+      padding-left: 23px;
+      opacity: 0.5;
+      font-size: 14px;
+      line-height: 30px;
+
+      &:hover {
+        color: $list-filter-hover-color;
+      }
+
+      &.active {
+        opacity: 1;
+      }
+    }
+
+    .open {
+      background-image: url('../assets/img/open.ico.png')
+    }
+
+    .closed {
+      background-image: url('../assets/img/closed.ico.png')
+    }
+  }
+
+  .cards {
+    padding: 0 5px;
+    margin-bottom: 35px;
+
+    .card {
+      margin-bottom: 20px;
+      box-shadow: 0 1px 1px $card-shadow-color;
+
+      background: $white url('../assets/img/issue.ico.png') no-repeat 30px 28px;
+
+      .badge {
+        padding: 6px 5px 3px;
+        font-size: 12px;
+
+        &.badge-warning {
+          box-shadow: 0 1px 2px $badge-warning-shadow-color;
+        }
+
+        &.badge-danger {
+          background-color: #e10c02;
+          box-shadow: 0 1px 2px #b40a02;
+        }
+
+        &.badge-secondary {
+          background-color: #444444;
+          box-shadow: 0 1px 2px #363636;
+        }
+      }
+
+      .card-body {
+        padding: 25px 30px 26px 65px;
+        font-size: 15px;
+      }
+
+      .issue {
+        margin-bottom: 5px;
+
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .comments {
+        background: url('../assets/img/comments.ico.png') no-repeat left center;
+        padding-left: 23px;
+        position: absolute;
+        top: 28px;
+        right: 30px;
+        font-size: 13px;
+        color: $light-gray;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .issue-info {
+        color: $gray;
+        font-size: 13px;
+
+        .author {
+          color: $author-color;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .pagination {
+    .page-link {
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      padding: 0;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      margin-right: 6px;
+      font-size: 13px;
+
+      &.next {
+        margin-left: 24px;
+      }
+
+      &.prev {
+        margin-right: 30px;
+      }
+
+      &.dots {
+        margin: 0 10px 0 4px;
+      }
+
+      &.active {
+        background-color: rgb(159, 213, 51);
+        color: white;
+      }
+
+      &.next, &.prev, &.dots {
+        width: auto;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
+
+        &:hover {
+          color: rgb(159, 213, 51);
+        }
+      }
+    }
+  }
+}

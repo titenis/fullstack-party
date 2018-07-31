@@ -1,0 +1,13 @@
+@import 'main';
+
+body {
+  &#login {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    background: $login-bg-color url('../assets/img/login.bg.png');
+    background-size: cover;
+    resize: both;
+  }
+}
