@@ -87,6 +87,10 @@ module.exports = (mode) => {
                 filename: 'list.html',
                 template: path.resolve(__dirname, 'src/html/list.html')
             }),
+            new HtmlWebpackPlugin({
+                filename: 'issue.html',
+                template: path.resolve(__dirname, 'src/html/issue.html')
+            }),
             new MiniCssExtractPlugin({
                 filename: "[name].css",
                 chunkFilename: "[id].css"

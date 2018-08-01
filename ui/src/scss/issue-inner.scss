@@ -1,0 +1,137 @@
+.issue-inner {
+  border-top: 1px solid $list-border-color;
+  background-color: $main-bg-color;
+  padding-top: 40px;
+
+  .back {
+    font-size: 13px;
+    color: rgb(133, 179, 43);
+    background: url('../assets/img/back.ico.png') no-repeat left 2px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    display: block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .cards {
+    padding: 0 5px;
+    margin-bottom: 45px;
+
+    .card {
+      margin-bottom: 20px;
+      box-shadow: 0 1px 1px $card-shadow-color;
+
+      background-color: $white;
+
+      .badge {
+        padding: 6px 5px 3px;
+        font-size: 12px;
+
+        &.badge-warning {
+          box-shadow: 0 1px 2px $badge-warning-shadow-color;
+        }
+
+        &.badge-danger {
+          background-color: #e10c02;
+          box-shadow: 0 1px 2px #b40a02;
+        }
+
+        &.badge-secondary {
+          background-color: #444444;
+          box-shadow: 0 1px 2px #363636;
+        }
+      }
+
+      .card-body {
+        padding: 30px 40px;
+        font-size: 15px;
+
+        .issue {
+          font-size: 30px;
+          letter-spacing: 1px;
+          color: rgb(51, 51, 51);
+          font-weight: 300;
+        }
+      }
+
+      .issue-info, .comment-info {
+        color: $gray;
+        font-size: 13px;
+
+        .badge-open {
+          color: $white;
+          font-size: 14px;
+          font-weight: 300;
+          background: $btn-primary-bg-color url('../assets/img/issue.open.ico.png') no-repeat 8px center;
+          padding: 8px 10px 7px 29px;
+          margin-right: 20px;
+          box-shadow: 0 1px 0 #7faa29;
+        }
+
+        .author {
+          color: $author-color;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .cards.issue-comments {
+    padding-left: 85px;
+
+    .card-body {
+      padding-top: 0;
+      z-index: 1;
+    }
+
+    .comment-info {
+      border-bottom: 1px solid $list-border-color;
+      margin-bottom: 25px;
+      padding: 26px 20px 22px;
+      margin-left: -40px;
+      margin-right: -40px;
+
+      .arrow-left {
+        position: absolute;
+        top: 18px;
+        left: -18px;
+        width: 25px;
+        padding-bottom: 25px;
+        border-radius: 3px;
+        overflow: hidden;
+        transform-origin: 100% 0;
+        transform: rotate(-45deg);
+      }
+      .arrow-left:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 8px;
+        width: 100%;
+        height: 141%;
+        transform-origin: inherit;
+        transform: rotate(45deg);
+        background: #fff;
+      }
+
+      .author-thumb {
+        position: absolute;
+        top: 2px;
+        left: -80px;
+        border-radius: 50%;
+      }
+    }
+
+    .comment {
+      font-size: 13px;
+      line-height: 20px;
+      color: rgb(102, 102, 102);
+    }
+  }
+}
