@@ -7,6 +7,10 @@ services:
     container_name: fullstack-party-api
     ports:
       - '8080:80'
+    environment:
+      APP_NAME: ${APP_NAME}
+      CLIENT_ID: ${CLIENT_ID}
+      CLIENT_SECRET: ${CLIENT_SECRET}
     volumes:
       - ../:/var/www/:delegated
       - ./logs/apache:/var/log/apache2:delegated
