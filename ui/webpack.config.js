@@ -5,20 +5,39 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = (mode) => {
+module.exports = (env, argv) => {
 
-    const _DEV_ = mode === 'development';
+    const _DEV_ = argv.mode === 'development';
 
     return {
         context: path.resolve(__dirname),
-        entry: ['./src/app/main.js'],
+        entry: _DEV_ ? [
+            'react-hot-loader/patch',
+            './src/app/main.js'
+        ] : [
+            './src/app/main.js'
+        ],
         output: {
             path: path.resolve(__dirname, './dist'),
-            filename: 'bundle.js',
+            filename: _DEV_ ? 'js/[name].bundle.js' : 'js/[name].[hash].bundle.js',
+            chunkFilename: _DEV_ ? 'js/[id].chunk.js' : 'js/[id].[chunkhash].chunk.js',
             publicPath: '/'
         },
         module: {
             rules: [
+                {
+                    test: /\.jsx?$/,
+                    loader: 'babel-loader',
+                    query: {
+                        "presets": [
+                            ["es2015", {"modules": false}],
+                            "stage-2",
+                            "react"
+                        ],
+                        "plugins": ["react-hot-loader/babel"]
+                    },
+                    exclude: [/node_modules/]
+                },
                 {
                     test: /\.(sa|sc|c)ss$/,
                     use: [
@@ -53,6 +72,13 @@ module.exports = (mode) => {
                 {test: /\.(jpe?g|png|gif)$/, loader: 'file-loader', query: {name: 'assets/img/[name].[ext]'}},
             ]
         },
+        resolve: {
+            extensions: [".js", ".jsx"],
+            modules: [
+                path.resolve(__dirname, 'src/app'),
+                'node_modules'
+            ]
+        },
         devServer: {
             contentBase: path.join(__dirname, "dist"),
             compress: true,
@@ -72,24 +98,12 @@ module.exports = (mode) => {
         plugins: [
             new CleanWebpackPlugin(['dist']),
             new CopyWebpackPlugin([
-                {from: './src/html'},
                 {from: './src/index.html'},
                 {from: './src/assets', to: './assets'}
             ]),
             new HtmlWebpackPlugin({
-                template: path.resolve(__dirname, 'src/index.html')
-            }),
-            new HtmlWebpackPlugin({
-                filename: 'login.html',
-                template: path.resolve(__dirname, 'src/html/login.html')
-            }),
-            new HtmlWebpackPlugin({
-                filename: 'list.html',
-                template: path.resolve(__dirname, 'src/html/list.html')
-            }),
-            new HtmlWebpackPlugin({
-                filename: 'issue.html',
-                template: path.resolve(__dirname, 'src/html/issue.html')
+                template: path.resolve(__dirname, 'src/index.html'),
+                chunksSortMode: 'dependency'
             }),
             new MiniCssExtractPlugin({
                 filename: "[name].css",
