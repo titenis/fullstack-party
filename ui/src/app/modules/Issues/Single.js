@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-class App extends Component {
+class Single extends Component {
     render = () => {
         return (
             <div>
-                {this.props.children}
+                Single
             </div>
         );
     };
@@ -13,4 +13,4 @@ class App extends Component {
 
 const mapStateToProps = (state, ownProps) => ({});
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(Single);

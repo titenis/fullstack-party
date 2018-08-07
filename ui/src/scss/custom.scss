@@ -4,6 +4,10 @@ body {
   color: $text-color;
 }
 
+#app-root {
+  width: 100%;
+}
+
 .btn {
   // TODO: bootstrap vars dont work on this one
   &:hover, &:active, &:focus {
