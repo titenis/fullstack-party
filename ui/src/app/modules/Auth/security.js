@@ -10,6 +10,4 @@ export const requireAuth = (store, history) => (nextState, replace) => {
     }
 };
 
-const isLoggedIn = () => {
-    return localStorage.getItem('token');
-};
+const isLoggedIn = () => localStorage.getItem('token') && localStorage.getItem('token') !== 'undefined';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LoginPage = ({redirectToLogin}) => (
+const Login = ({redirectToLogin}) => (
     <div className="container">
         <div className="row justify-content-md-center">
             <div className="col col-xl-4 col-lg-5 col-md-6 text-center">
@@ -13,4 +13,4 @@ const LoginPage = ({redirectToLogin}) => (
     </div>
 );
 
-export default LoginPage;
+export default Login;

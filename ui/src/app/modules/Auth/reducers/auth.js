@@ -1,4 +1,5 @@
 import {API_ACTIONS} from '../../../actions/api';
+import {LOGOUT_ACTION} from "../actions/Actions";
 
 const initialState = {
     token: localStorage.getItem('token') ? localStorage.getItem('token') : null,
@@ -8,8 +9,6 @@ const initialState = {
 const auth = (state = initialState, action) => {
     switch (action.type) {
         case API_ACTIONS.SUCCESS:
-            console.log(action.type);
-            console.log(action);
             localStorage.setItem('token', action.payload.data.access_token);
             return Object.assign({}, state, {
                 token: action.payload.data.access_token,
@@ -21,12 +20,12 @@ const auth = (state = initialState, action) => {
                 token: null,
                 error: action.error.status + ' - ' + action.error.message
             });
-        // case API_ACTIONS.LOGOUT_USER:
-        //     console.log(action.type);
-        //     return Object.assign({}, state, {
-        //         token: null,
-        //         error: null
-        //     });
+        case LOGOUT_ACTION:
+            console.log(action.type);
+            return Object.assign({}, state, {
+                token: null,
+                error: null
+            });
         default:
             return state
     }

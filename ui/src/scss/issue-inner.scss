@@ -69,6 +69,7 @@
           padding: 8px 10px 7px 29px;
           margin-right: 20px;
           box-shadow: 0 1px 0 #7faa29;
+          text-transform: uppercase;
         }
 
         .author {
@@ -88,6 +89,7 @@
     .card-body {
       padding-top: 0;
       z-index: 1;
+      white-space: pre-line;
     }
 
     .comment-info {
@@ -125,6 +127,7 @@
         top: 2px;
         left: -80px;
         border-radius: 50%;
+        width: 64px;
       }
     }
 

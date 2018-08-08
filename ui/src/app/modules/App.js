@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 class App extends Component {
     render = () => {
         return (
-            <div>
+            <React.Fragment>
                 {this.props.children}
-            </div>
+            </React.Fragment>
         );
     };
 }

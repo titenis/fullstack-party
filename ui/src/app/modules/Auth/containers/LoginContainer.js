@@ -2,17 +2,18 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import randomString from 'random-string';
 import queryString from 'query-string';
-import {API_ACTIONS, call} from "../../actions/api";
+import {API_ACTIONS, call} from "../../../actions/api";
 
-import LoginPage from './components/LoginPage';
+import Login from '../components/Login';
 
-class Login extends Component {
+class LoginContainer extends Component {
 
     redirectToLogin = () => {
         window.location.href = `${__GITHUB_URL__}login/oauth/authorize?client_id=${__CLIENT_ID__}&state=${randomString()}&redirect_uri=${__ROOTURL__}#/login/`;
     };
+
     render = () => (
-        <LoginPage redirectToLogin={this.redirectToLogin}/>
+        <Login redirectToLogin={this.redirectToLogin}/>
     );
 
     componentWillMount() {
@@ -22,7 +23,7 @@ class Login extends Component {
                 __APIURL__ + 'fetch_token/' + codeAndState.code + '/' + codeAndState.state,
                 null, 'GET',
                 () => {
-                    window.location.href = __ROOTURL__ + '/list';
+                    window.location.href = __ROOTURL__;
                 }
             ));
         }
@@ -39,7 +40,7 @@ class Login extends Component {
 
 const mapStateToProps = (state, ownProps) => ({});
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(LoginContainer);
 
 const extractCodeAndState = () => {
     let parsed = queryString.parseUrl(window.location.href);

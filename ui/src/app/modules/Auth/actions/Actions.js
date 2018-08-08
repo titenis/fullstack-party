@@ -1,8 +1,8 @@
-// import * as actionTypes from './ActionTypes';
-//
-// export const logout = () => {
-//     localStorage.removeItem('token');
-//     return {
-//         type: actionTypes.LOGOUT_USER
-//     }
-// };
+export const LOGOUT_ACTION = "LOGOUT_ACTION";
+
+export const logout = () => {
+    localStorage.removeItem('token');
+    return {
+        type: LOGOUT_ACTION
+    }
+};

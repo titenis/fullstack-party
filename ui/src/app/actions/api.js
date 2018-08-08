@@ -6,12 +6,6 @@ export const API_ACTIONS = {
     FAILURE: 'API_FAILURE'
 };
 
-export const GITHUB_ACTIONS = {
-    REQUEST: 'GITHUB_REQUEST',
-    SUCCESS: 'GITHUB_SUCCESS',
-    FAILURE: 'GITHUB_FAILURE'
-};
-
 const apiRequest = (actionType) => ({
     type: actionType.REQUEST
 });
@@ -21,7 +15,7 @@ const apiSuccess = (actionType, response) => ({
     payload: response
 });
 
-export const apiFailure = (actionType, error) => ({
+const apiFailure = (actionType, error) => ({
     type: actionType.FAILURE,
     payload: error
 });
