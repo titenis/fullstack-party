@@ -7,7 +7,6 @@ import List from '../components/List';
 import NavBar from '../../Common/components/NavBar';
 
 class ListContainer extends Component {
-
     render = () => (
         <React.Fragment>
             <NavBar/>
@@ -15,12 +14,26 @@ class ListContainer extends Component {
         </React.Fragment>
     );
 
-    componentWillMount() {
-        this.props.dispatch(call(ISSUE_ACTIONS, __GITHUB_API_URL__ + 'repos/symfony/symfony/issues'));
+    componentWillMount = () => this.loadIssues();
+
+    componentDidUpdate = (prevProps) => {
+        if (JSON.stringify(this.props.pagination) !== JSON.stringify(prevProps.pagination)) {
+            this.loadIssues();
+        }
+    };
+
+    loadIssues = () => {
+        this.props.dispatch(
+            call(
+                ISSUE_ACTIONS,
+                `${__GITHUB_API_URL__}repos/symfony/symfony/issues?page=${this.props.pagination.currentPage}&per_page=${this.props.pagination.perPage}`
+            )
+        );
     }
 }
 
 const mapStateToProps = (state, ownProps) => ({
+    pagination: state.pagination,
     issues: state.issues.items
 });
 

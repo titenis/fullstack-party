@@ -15,11 +15,11 @@ const auth = (state = initialState, action) => {
                 error: null
             });
         case API_ACTIONS.FAILURE:
-            console.log(action.type);
             return Object.assign({}, state, {
                 token: null,
-                error: action.error.status + ' - ' + action.error.message
+                error: action.payload.response.status + ' - ' + action.payload.response.data.message
             });
+
         case LOGOUT_ACTION:
             console.log(action.type);
             return Object.assign({}, state, {

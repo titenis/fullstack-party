@@ -1,4 +1,7 @@
 import axios from 'axios';
+import {logout} from "../modules/Auth/actions/Actions";
+import parse from "parse-link-header";
+import {setCount} from '../modules/Pagination/reducers/pagination';
 
 export const API_ACTIONS = {
     REQUEST: 'API_REQUEST',
@@ -36,10 +39,20 @@ export const call = (action, url, data = null, method = 'GET',
             }, ...customProps
         }).then((response) => {
             dispatch(apiSuccess(action, response));
-
             successCallback(response.data);
+
+            const paginationData = parse(response.headers.link);
+            if (paginationData.last) {
+                dispatch(setCount(paginationData.last.page));
+            }
+
         }).catch((error) => {
             console.log('ERROR', error);
+            if (error.response.status === 401) {
+                dispatch(logout());
+                window.location.href = __ROOTURL__;
+            }
+
             dispatch(apiFailure(action, error));
             errorCallback(error.response);
         });

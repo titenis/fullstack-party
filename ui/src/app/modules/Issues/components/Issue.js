@@ -1,8 +1,9 @@
 import _ from 'lodash';
 import React from 'react';
-import moment from 'moment';
 import {Link} from 'react-router';
 import classnames from 'classnames';
+import FromNow from '../../Common/components/FromNow';
+import Comment from './Comment';
 
 const Issue = ({issue, comments}) => {
     let badgeClass = classnames({
@@ -29,7 +30,7 @@ const Issue = ({issue, comments}) => {
 
                                         <div className={badgeClass}>{issue.state}</div>
                                         <a href="#" className="author">{issue.user ? issue.user.login : ''}</a> opened
-                                        this issue {moment(issue.created_at).fromNow()} · {issue.comments} comment
+                                        this issue <FromNow timestamp={issue.created_at}/> · {issue.comments} comment
                                     </div>
                                 </div>
                             </li>
@@ -37,22 +38,7 @@ const Issue = ({issue, comments}) => {
 
                         <ul className="issue-comments cards">
                             {_.map(comments, (singleComment) => (
-                                <li className="card" key={singleComment.id}>
-                                    {console.log(singleComment)}
-                                    <div className="card-body">
-                                        <div className="comment-info">
-                                            <img className="author-thumb" src={singleComment.user.avatar_url} alt=""/>
-                                            <div className="arrow-left"/>
-                                            <a href="#" className="author">{singleComment.user.login}</a>
-                                            commented {moment(singleComment.created_at).fromNow()}
-                                        </div>
-
-                                        <div className="comment">
-                                            {singleComment.body}
-                                        </div>
-                                    </div>
-                                </li>
-                            ))}
+                                <Comment comment={singleComment} key={singleComment.id}/>))}
                         </ul>
                     </div>
                 </div>

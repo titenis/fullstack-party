@@ -1,10 +1,11 @@
 import _ from 'lodash';
 import React from 'react';
 import Label from './Label';
-import moment from 'moment';
 import {Link} from 'react-router';
+import FromNow from '../../Common/components/FromNow';
+import Pagination from '../../Pagination/containers/PaginationContainer'
 
-const List = ({issues}) => (
+const List = ({issues, pagination}) => (
     <div className="container-fluid h-100-minus-navbar">
         <div className="row h-100">
             <div className="col list">
@@ -25,26 +26,15 @@ const List = ({issues}) => (
                                 <Link to={`/issue/${issue.number}`} className={"comments"}>{issue.comments}</Link>
 
                                 <div className="issue-info">
-                                    #{issue.number} opened {moment(issue.created_at).fromNow()} by <a href="#"
-                                                                                                      className="author">{issue.user.login}</a>
+                                    #{issue.number} opened <FromNow timestamp={issue.created_at}/> by <a href="#"
+                                                                                                         className="author">{issue.user.login}</a>
                                 </div>
                             </div>
                         </li>
                     ))}
                 </ul>
 
-                <nav>
-                    <ul className="pagination justify-content-center">
-                        <li className="page-item"><a className="page-link prev" href="#">Previous</a></li>
-                        <li className="page-item"><a className="page-link active" href="#">1</a></li>
-                        <li className="page-item"><a className="page-link" href="#">2</a></li>
-                        <li className="page-item"><a className="page-link" href="#">3</a></li>
-                        <li className="page-item"><a className="page-link dots" href="#">...</a></li>
-                        <li className="page-item"><a className="page-link" href="#">9</a></li>
-                        <li className="page-item"><a className="page-link" href="#">10</a></li>
-                        <li className="page-item"><a className="page-link next" href="#">Next</a></li>
-                    </ul>
-                </nav>
+                <Pagination/>
             </div>
             <div className="col list-bg h-100 text-center text-white">
                 <div className="absolute-vertical-center">
