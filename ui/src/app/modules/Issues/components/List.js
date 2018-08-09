@@ -3,17 +3,15 @@ import React from 'react';
 import Label from './Label';
 import {Link} from 'react-router';
 import FromNow from '../../Common/components/FromNow';
+import Author from '../../Common/components/Author';
 import Pagination from '../../Pagination/containers/PaginationContainer'
+import Filter from './Filter';
 
-const List = ({issues, pagination}) => (
+const List = ({issues, pagination, filter, counts, stateHandler}) => (
     <div className="container-fluid h-100-minus-navbar">
         <div className="row h-100">
             <div className="col list">
-                <div className="filter text-center">
-                    <a className="open d-inline-block mr-3 active" href="#">420 Open</a>
-                    <a className="closed d-inline-block" href="#">6.969 Closed</a>
-                </div>
-
+                <Filter filter={filter} counts={counts} stateHandler={stateHandler}/>
                 <ul className="cards">
                     {_.map(issues, (issue) => (
                         <li className="card" key={issue.id}>
@@ -26,8 +24,8 @@ const List = ({issues, pagination}) => (
                                 <Link to={`/issue/${issue.number}`} className={"comments"}>{issue.comments}</Link>
 
                                 <div className="issue-info">
-                                    #{issue.number} opened <FromNow timestamp={issue.created_at}/> by <a href="#"
-                                                                                                         className="author">{issue.user.login}</a>
+                                    #{issue.number} opened <FromNow timestamp={issue.created_at}/> by <Author
+                                    user={issue.user}/>
                                 </div>
                             </div>
                         </li>

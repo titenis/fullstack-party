@@ -5,7 +5,8 @@ import auth from '../modules/Auth/reducers/auth';
 import issues from '../modules/Issues/reducers/issues';
 import singleIssue from '../modules/Issues/reducers/singleIssue';
 import comments from '../modules/Issues/reducers/comments';
-import pagination from "../modules/Pagination/reducers/pagination"
+import pagination from "../modules/Pagination/reducers/pagination";
+import filter from "../modules/Issues/reducers/filter";
 
 const rootReducer = combineReducers({
     routing,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     issues,
     singleIssue,
     comments,
-    pagination
+    pagination,
+    filter
 });
 
 export default rootReducer;

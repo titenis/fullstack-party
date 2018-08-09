@@ -42,7 +42,7 @@ export const call = (action, url, data = null, method = 'GET',
             successCallback(response.data);
 
             const paginationData = parse(response.headers.link);
-            if (paginationData.last) {
+            if (paginationData && paginationData.last) {
                 dispatch(setCount(paginationData.last.page));
             }
 

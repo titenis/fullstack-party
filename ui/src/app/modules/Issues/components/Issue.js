@@ -4,6 +4,7 @@ import {Link} from 'react-router';
 import classnames from 'classnames';
 import FromNow from '../../Common/components/FromNow';
 import Comment from './Comment';
+import Author from '../../Common/components/Author';
 
 const Issue = ({issue, comments}) => {
     let badgeClass = classnames({
@@ -11,6 +12,10 @@ const Issue = ({issue, comments}) => {
         'badge-open': issue.state === 'open',
         'badge-closed': issue.state !== 'open', //TODO: missing css
     });
+
+    if (Object.keys(issue).length === 0) {
+        return null;
+    }
 
     return (
         <div className="issue-inner min-h-100-minus-navbar">
@@ -27,10 +32,9 @@ const Issue = ({issue, comments}) => {
                                     </h1>
 
                                     <div className="issue-info">
-
                                         <div className={badgeClass}>{issue.state}</div>
-                                        <a href="#" className="author">{issue.user ? issue.user.login : ''}</a> opened
-                                        this issue <FromNow timestamp={issue.created_at}/> · {issue.comments} comment
+                                        <Author user={issue.user}/> opened this issue <FromNow
+                                        timestamp={issue.created_at}/> · {issue.comments} comment
                                     </div>
                                 </div>
                             </li>
