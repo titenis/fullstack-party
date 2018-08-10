@@ -29,7 +29,7 @@ class ListContainer extends Component {
 
     componentDidUpdate = (prevProps) => {
         if (
-            // TODO: bug, pagination action goes through this 2 times
+            // TODO: bug, pagination and filter action goes through this 2 times
         JSON.stringify(this.props.pagination) !== JSON.stringify(prevProps.pagination) ||
         JSON.stringify(this.props.filter) !== JSON.stringify(prevProps.filter)
         ) {
@@ -52,7 +52,11 @@ class ListContainer extends Component {
             `${__GITHUB_API_URL__}search/issues?q=repo:${this.props.filter.repo}+type:${this.props.filter.type}+state:open&per_page=1`,
             null,
             'GET',
-            (data) => this.props.dispatch(setOpenCount(data.total_count))
+            (data) => this.props.dispatch(setOpenCount(data.total_count)),
+            () => {
+            },
+            {},
+            false
         ));
 
         this.props.dispatch(call(
@@ -60,7 +64,11 @@ class ListContainer extends Component {
             `${__GITHUB_API_URL__}search/issues?q=repo:${this.props.filter.repo}+type:${this.props.filter.type}+state:closed&per_page=1`,
             null,
             'GET',
-            (data) => this.props.dispatch(setClosedCount(data.total_count))
+            (data) => this.props.dispatch(setClosedCount(data.total_count)),
+            () => {
+            },
+            {},
+            false
         ));
     };
 }

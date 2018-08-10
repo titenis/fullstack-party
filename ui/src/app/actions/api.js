@@ -27,7 +27,7 @@ export const call = (action, url, data = null, method = 'GET',
                      successCallback = () => {
                      }, errorCallback = () => {
     },
-                     customProps = {}) =>
+                     customProps = {}, updatePagination = true) =>
     (dispatch) => {
         dispatch(apiRequest(action));
         axios({
@@ -41,9 +41,11 @@ export const call = (action, url, data = null, method = 'GET',
             dispatch(apiSuccess(action, response));
             successCallback(response.data);
 
-            const paginationData = parse(response.headers.link);
-            if (paginationData && paginationData.last) {
-                dispatch(setCount(paginationData.last.page));
+            if (updatePagination) {
+                const paginationData = parse(response.headers.link);
+                if (paginationData && paginationData.last) {
+                    dispatch(setCount(paginationData.last.page));
+                }
             }
 
         }).catch((error) => {
