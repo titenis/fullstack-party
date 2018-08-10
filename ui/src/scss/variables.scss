@@ -8,9 +8,24 @@ $btn-primary-hover-color: #86b300;
 $btn-primary-bg-color: #9fd533;
 $list-filter-hover-color: #99cc33;
 $author-color: #85b32b;
+$issue-back-color: rgb(133, 179, 43);
 $text-color: #333333;
 $light-gray: rgb(153, 153, 153);
 $gray: rgb(191, 191, 191);
+$scrollbar-color: #b7b7b7;
+$issue-color: rgb(51, 51, 51);
+$comment-color: rgb(102, 102, 102);
+$danger-badge-color: #e10c02;
+$danger-badge-shadow-color: #b40a02;
+$secondary-badge-color: #444444;
+$secondary-badge-shadow-color: #363636;
+$badge-warning-shadow-color: #c9a203;
+$badge-open-color: #7faa29;
+$card-shadow-color: rgba(0, 0, 0, 0.1);
+$pagination-bg: $white;
+$pagination-hover-color: $white;
+$btn-logout-color: #2f3153;
+$pagination-active-color: rgb(159, 213, 51);
 
 $link-color: $text-color;
 $link-decoration: none;
@@ -18,15 +33,12 @@ $link-hover-color: $link-color;
 $link-hover-decoration: none;
 
 $badge-border-radius: 2px;
-$badge-warning-shadow-color: #c9a203;
+
 
 $card-border-radius: 5px;
 $card-border-width: 0;
-$card-shadow-color: rgba(0, 0, 0, 0.1);
 
-$pagination-bg: #fff;
 $pagination-border-width: 0;
-$pagination-hover-color: #fff;
 $pagination-hover-bg: $btn-primary-bg-color;
 
 // Typography
@@ -56,3 +68,5 @@ $spacers: (
 
 $navbar-padding-y: 2.3rem;
 $navbar-height: 115px;
+
+$filter-height: 80px;

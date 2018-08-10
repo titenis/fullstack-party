@@ -9,10 +9,10 @@ import {COMMENTS_ACTIONS} from "../reducers/comments";
 class IssueContainer extends Component {
     render = () => {
         return (
-            <div>
+            <React.Fragment>
                 <NavBar/>
                 <Issue issue={this.props.issue} comments={this.props.comments}/>
-            </div>
+            </React.Fragment>
         );
     };
 

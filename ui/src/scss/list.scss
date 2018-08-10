@@ -1,3 +1,21 @@
+::-webkit-scrollbar {
+  width: 7px;
+  height: 65px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: $scrollbar-color;
+}
+
+#no-scroll {
+  overflow-y: hidden;
+}
+
 .list-bg {
   background: $login-bg-color url('../assets/img/list.bg.png');
   background-size: cover;
@@ -44,10 +62,10 @@
 
   .filter {
     padding: 20px 0;
+    height: $filter-height;
 
     .open, .closed {
-      background-repeat: no-repeat;
-      background-position: left center;
+      background: no-repeat left center;
       padding-left: 23px;
       opacity: 0.5;
       font-size: 14px;
@@ -72,44 +90,46 @@
   }
 
   .cards {
-    padding: 0 5px;
-    margin-bottom: 35px;
+
+    height: calc(100% - #{$navbar-height} - #{$filter-height});
+    overflow: auto;
 
     .card {
-      margin-bottom: 20px;
-      box-shadow: 0 1px 1px $card-shadow-color;
-
       background: $white url('../assets/img/issue.ico.png') no-repeat 30px 28px;
+
+      &:last-child {
+        margin: 0;
+      }
 
       .badge {
         padding: 6px 5px 3px;
         font-size: 12px;
+        margin: 0 2.5px;
 
         &.badge-warning {
           box-shadow: 0 1px 0 $badge-warning-shadow-color;
         }
 
         &.badge-danger {
-          background-color: #e10c02;
-          box-shadow: 0 1px 0 #b40a02;
+          background-color: $danger-badge-color;
+          box-shadow: 0 1px 0 $danger-badge-shadow-color;
         }
 
         &.badge-secondary {
-          background-color: #444444;
-          box-shadow: 0 1px 0 #363636;
+          background-color: $secondary-badge-color;
+          box-shadow: 0 1px 0 $secondary-badge-shadow-color;
         }
       }
 
       .card-body {
-        padding: 25px 30px 26px 65px;
-        font-size: 15px;
+        padding: 25px 70px 26px 65px;
       }
 
       .issue {
         margin-bottom: 5px;
 
-        a:hover {
-          text-decoration: underline;
+        .title {
+          margin-right: 5px;
         }
       }
 
@@ -150,7 +170,7 @@
       padding: 0;
       border-radius: 18px;
       text-align: center;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 2px $card-shadow-color;
       margin-right: 6px;
       font-size: 13px;
 
@@ -164,11 +184,12 @@
 
       &.dots {
         margin: 0 10px 0 4px;
+        pointer-events: none;
       }
 
       &.active {
-        background-color: rgb(159, 213, 51);
-        color: white;
+        background-color: $pagination-active-color;
+        color: $white;
       }
 
       &.next, &.prev, &.dots {
@@ -178,7 +199,7 @@
         background-color: transparent;
 
         &:hover {
-          color: rgb(159, 213, 51);
+          color: $pagination-active-color;
         }
       }
     }

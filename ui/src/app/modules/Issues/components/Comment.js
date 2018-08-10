@@ -1,6 +1,6 @@
 import React from 'react';
-import FromNow from '../../Common/components/FromNow';
 import Author from '../../Common/components/Author';
+import Moment from 'react-moment';
 
 const Comment = ({comment}) => (
     <li className="card">
@@ -8,7 +8,7 @@ const Comment = ({comment}) => (
             <div className="comment-info">
                 <img className="author-thumb" src={comment.user.avatar_url} alt=""/>
                 <div className="arrow-left"/>
-                <Author user={comment.user}/> commented <FromNow timestamp={comment.created_at}/>
+                <Author user={comment.user}/> commented <Moment fromNow>{comment.created_at}</Moment>
             </div>
 
             <div className="comment">

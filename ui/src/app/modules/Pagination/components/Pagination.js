@@ -35,11 +35,11 @@ const Pagination = ({pagination, handler}) => {
                 </li>
             );
         } else if (dotsShowPrev === false && i < pagination.currentPage + 2) {
-            list.push(<li className="page-item" key={'prev...'}>...</li>);
+            list.push(<li className="page-item" key={'prev...'}><a className="page-link dots">...</a></li>);
             dotsShowPrev = true;
 
         } else if (dotsShowNext === false && i > pagination.currentPage - 2) {
-            list.push(<li className="page-item" key={'next...'}>...</li>);
+            list.push(<li className="page-item" key={'next...'}><a className="page-link dots">...</a></li>);
             dotsShowNext = true;
         }
 

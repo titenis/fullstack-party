@@ -22,6 +22,14 @@ class ListContainer extends Component {
         this.props.dispatch(setState(state));
     };
 
+    componentDidMount() {
+        document.body.id = 'no-scroll';
+    }
+
+    componentWillUnmount() {
+        document.body.id = '';
+    }
+
     componentWillMount = () => {
         this.loadCounts();
         this.loadIssues();

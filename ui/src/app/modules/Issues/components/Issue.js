@@ -2,9 +2,9 @@ import _ from 'lodash';
 import React from 'react';
 import {Link} from 'react-router';
 import classnames from 'classnames';
-import FromNow from '../../Common/components/FromNow';
 import Comment from './Comment';
 import Author from '../../Common/components/Author';
+import Moment from 'react-moment';
 
 const Issue = ({issue, comments}) => {
     let badgeClass = classnames({
@@ -33,8 +33,8 @@ const Issue = ({issue, comments}) => {
 
                                     <div className="issue-info">
                                         <div className={badgeClass}>{issue.state}</div>
-                                        <Author user={issue.user}/> opened this issue <FromNow
-                                        timestamp={issue.created_at}/> · {issue.comments} comment
+                                        <Author user={issue.user}/> opened this issue <Moment
+                                        fromNow>{issue.created_at}</Moment> · {issue.comments} comment
                                     </div>
                                 </div>
                             </li>
