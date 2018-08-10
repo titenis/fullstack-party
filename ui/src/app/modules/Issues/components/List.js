@@ -10,7 +10,7 @@ import Moment from 'react-moment';
 const List = ({issues, pagination, filter, counts, stateHandler}) => (
     <div className="container-fluid h-100-minus-navbar">
         <div className="row h-100">
-            <div className="col list">
+            <div className="col-md list">
                 <Filter filter={filter} counts={counts} stateHandler={stateHandler}/>
                 <ul className="cards">
                     {_.map(issues, (issue) => (
@@ -34,7 +34,7 @@ const List = ({issues, pagination, filter, counts, stateHandler}) => (
 
                 <Pagination/>
             </div>
-            <div className="col list-bg h-100 text-center text-white">
+            <div className="col-md d-none d-md-block list-bg h-100 text-center text-white">
                 <div className="absolute-vertical-center">
                     <h2>Full Stack Developer Task</h2>
                     <div className="by-logo">
