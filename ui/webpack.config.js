@@ -98,12 +98,11 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new webpack.DefinePlugin({
-                __ROOTURL__: '"http://localhost:2201/"',
-                __APIURL__: '"http://localhost:8080/"',
-                __GITHUB_URL__: '"https://github.com/"',
-                __GITHUB_API_URL__: '"https://api.github.com/"',
-
-                __CLIENT_ID__: '"a34aa544203b2723d2dc"',
+                __ROOTURL__: process.env['ROOTURL'],
+                __APIURL__: process.env['APIURL'],
+                __GITHUB_URL__: process.env['GITHUB_URL'],
+                __GITHUB_API_URL__: process.env['GITHUB_API_URL'],
+                __CLIENT_ID__: process.env['CLIENT_ID'],
             }),
             new CleanWebpackPlugin(['dist']),
             new CopyWebpackPlugin([
