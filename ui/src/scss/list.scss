@@ -65,8 +65,6 @@
     height: $filter-height;
 
     .open, .closed {
-      background: no-repeat left center;
-      padding-left: 23px;
       opacity: 0.5;
       font-size: 14px;
       line-height: 30px;
@@ -78,14 +76,13 @@
       &.active {
         opacity: 1;
       }
-    }
 
-    .open {
-      background-image: url('../assets/img/open.ico.png')
-    }
-
-    .closed {
-      background-image: url('../assets/img/closed.ico.png')
+      i {
+        position: relative;
+        top: 3px;
+        margin-right: 5px;
+        font-size: 16px;
+      }
     }
   }
 
@@ -95,8 +92,6 @@
     overflow: auto;
 
     .card {
-      background: $white url('../assets/img/issue.ico.png') no-repeat 30px 28px;
-
       &:last-child {
         margin: 0;
       }
@@ -123,6 +118,12 @@
 
       .card-body {
         padding: 25px 70px 26px 65px;
+
+        .icon-ico-open, .icon-ico-closed {
+          position: absolute;
+          top: 28px;
+          left: 30px;
+        }
       }
 
       .issue {

@@ -8,6 +8,7 @@ const NavBar = () => (
         </IndexLink>
 
         <Link to="/logout" className="btn btn-link pull-right btn-logout mr-4">
+            <i className="icon-ico-logout"/>
             Logout
         </Link>
     </nav>

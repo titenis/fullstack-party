@@ -9,6 +9,10 @@ body {
   height: 100%;
 }
 
+.light-green {
+  color: $light-green;
+}
+
 .btn {
   // TODO: bootstrap vars dont work on this one
   &:hover, &:active, &:focus {
@@ -29,9 +33,15 @@ body {
 }
 
 .btn-logout {
-  background: url('../assets/img/logout.ico.png') no-repeat left center;
+  position: relative;
   padding-left: 27px;
   color: $btn-logout-color;
+
+  i {
+    position: absolute;
+    top: 10px;
+    left: 0;
+  }
 
   &:hover {
     color: $list-filter-hover-color;

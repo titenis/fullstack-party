@@ -14,10 +14,11 @@ const Filter = ({filter, counts, stateHandler}) => {
 
     return (
         <div className="filter text-center">
-            <button className={openBtnClass} onClick={() => stateHandler('open')}>{formatNumber(counts.open)} Open
+            <button className={openBtnClass} onClick={() => stateHandler('open')}>
+                <i className={"icon-ico-open"}/>{formatNumber(counts.open)} Open
             </button>
-            <button className={closedBtnClass} onClick={() => stateHandler('closed')}>{formatNumber(counts.closed)}
-                Closed
+            <button className={closedBtnClass} onClick={() => stateHandler('closed')}>
+                <i className={"icon-ico-closed"}/>{formatNumber(counts.closed)} Closed
             </button>
         </div>
     );

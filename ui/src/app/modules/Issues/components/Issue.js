@@ -10,7 +10,7 @@ const Issue = ({issue, comments}) => {
     let badgeClass = classnames({
         'badge': true,
         'badge-open': issue.state === 'open',
-        'badge-closed': issue.state !== 'open', //TODO: missing css
+        'badge-closed': issue.state !== 'open',
     });
 
     if (Object.keys(issue).length === 0) {
@@ -22,7 +22,7 @@ const Issue = ({issue, comments}) => {
             <div className="container">
                 <div className="row">
                     <div className="col">
-                        <Link to="/list" className="back">Back to Issues</Link>
+                        <Link to="/list" className="back"><i className="icon-ico-back"/>Back to Issues</Link>
 
                         <ul className="issue-content cards">
                             <li className="card">
@@ -32,7 +32,9 @@ const Issue = ({issue, comments}) => {
                                     </h1>
 
                                     <div className="issue-info">
-                                        <div className={badgeClass}>{issue.state}</div>
+                                        <div className={badgeClass}>
+                                            <i className={issue.state === 'open' ? "icon-ico-open" : "icon-ico-closed"}/>{issue.state}
+                                        </div>
                                         <Author user={issue.user}/> opened this issue <Moment
                                         fromNow>{issue.created_at}</Moment> · {issue.comments} comment
                                     </div>

@@ -16,6 +16,7 @@ const List = ({issues, pagination, filter, counts, stateHandler}) => (
                     {_.map(issues, (issue) => (
                         <li className="card" key={issue.id}>
                             <div className="card-body">
+                                <i className={issue.state === 'open' ? "icon-ico-open light-green" : "icon-ico-closed"}/>
                                 <div className="issue">
                                     <Link to={`/issue/${issue.number}`} className="title">{issue.title}</Link>
                                     {_.map(issue.labels, (label) => <Label label={label} key={label.id}/>)}

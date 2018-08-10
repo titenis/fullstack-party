@@ -70,6 +70,7 @@ module.exports = (env, argv) => {
                 //     {loader: 'sass-loader'}
                 // ]},
                 {test: /\.(jpe?g|png|gif)$/, loader: 'file-loader', query: {name: 'assets/img/[name].[ext]'}},
+                {test: /\.(eot|svg|ttf|woff|woff2)$/, loader: 'file-loader'}
             ]
         },
         resolve: {

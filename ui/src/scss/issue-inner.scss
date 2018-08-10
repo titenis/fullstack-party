@@ -6,10 +6,15 @@
   .back {
     font-size: 13px;
     color: $issue-back-color;
-    background: url('../assets/img/back.ico.png') no-repeat left 2px;
     padding-left: 20px;
     margin-bottom: 30px;
     display: block;
+
+    i {
+      position: absolute;
+      top: 3px;
+      left: 15px;
+    }
 
     &:hover {
       text-decoration: underline;
@@ -34,22 +39,31 @@
         font-size: 13px;
 
         .badge-open, .badge-closed {
+          position: relative;
           font-size: 14px;
           font-weight: 300;
           padding: 8px 10px 7px 29px;
           margin-right: 20px;
           text-transform: uppercase;
+
+          i {
+            position: absolute;
+            top: 7px;
+            left: 7px;
+            margin-right: 5px;
+            font-size: 16px;
+          }
         }
 
         .badge-open {
           color: $white;
-          background: $btn-primary-bg-color url('../assets/img/issue.open.ico.png') no-repeat 8px center;
+          background: $btn-primary-bg-color;
           box-shadow: 0 1px 0 $badge-open-color;
         }
 
         .badge-closed {
           color: $login-bg-color;
-          background: $scrollbar-color url('../assets/img/closed.ico.png') no-repeat 8px center;
+          background: $scrollbar-color;
           box-shadow: 0 1px 0 $secondary-badge-color;
         }
 
