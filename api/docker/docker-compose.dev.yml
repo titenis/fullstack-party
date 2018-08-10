@@ -1,10 +1,12 @@
 version: '3'
 
 services:
-  fullstack-party-api:
-    build: ./php
+  fullstack-party-api-dev:
+    build:
+      context: ./php
+      dockerfile: Dockerfile.dev
     working_dir: /var/www/
-    container_name: fullstack-party-api
+    container_name: fullstack-party-api-dev
     ports:
       - '8080:80'
     environment:

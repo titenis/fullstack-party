@@ -1,29 +1,26 @@
 # Great task for Great Fullstack Developer
 
-If you found this task it means we are looking for you!
+## Requirements
 
-> Note: To clone this repository you will need [GIT-LFS](https://git-lfs.github.com/)
+- `Docker ^17.05`
+- `Docker-compose ^1.22.0`
+ 
+## How to run 
+- create github app
+- create and update .ENV files `ui/docker/.env`, `api/.env`, `api/docker/.env`
 
-## Few simple steps
+## DEV RUN
+- `cd api/docker && ./start_dev.sh`
+- `cd ui/docker && ./start_dev.sh`
 
-1. Fork this repo
-2. Do your best
-3. Prepare pull request and let us know that you are done
+## DEV STOP
+- `cd api/docker && ./stop_dev.sh`
+- `cd ui/docker && ./stop_dev.sh`
 
-## Few simple requirements
+## PROD RUN
+- `cd api/docker && ./start_prod.sh`
+- `cd ui/docker && ./start_prod.sh`
 
-- Design should be recreated as closely as possible.
-- Design must be responsive. Because we live in our smartphones and we will check with them for sure.
-- Use GitHub V3 REST API to receive data. [Docs here](https://developer.github.com/v3/)
-- Use popular PHP framework (SlimPHP, Lumen, Symfony, Laravel, Zend or any other)
-- Use AngularJS or ReactJS.
-- Use CSS preprocessor (SCSS preferred).
-- Browser support must be great. All modern browsers plus IE9 and above.
-- Use a Javascript task-runner. Gulp, Webpack or Grunt - it doesn't matter.
-- Do not commit the build, because we are building things on deployment.
-
-## Few tips
-
-- Structure! WE LOVE STRUCTURE!
-- Maybe You have an idea how it should interact with users? Do it! Its on you!
-- Have fun!
+## PROD STOP
+- `cd api/docker && ./stop_prod.sh`
+- `cd ui/docker && ./stop_prod.sh`

@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  fullstack-party-api-prod:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    working_dir: /var/www/
+    container_name: fullstack-party-api-prod
+    ports:
+      - '8080:80'
+    environment:
+      APP_NAME: ${APP_NAME}
+      CLIENT_ID: ${CLIENT_ID}
+      CLIENT_SECRET: ${CLIENT_SECRET}
+      APP_ENV: 'production'
+    volumes:
+      - ../:/var/www/:delegated
+      - ./logs/apache:/var/log/apache2:delegated

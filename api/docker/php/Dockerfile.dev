@@ -9,5 +9,4 @@ ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN docker-php-ext-enable opcache
 
 RUN a2enmod speling rewrite headers
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --no-dev
-
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
